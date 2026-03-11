@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+    --default-font-family: "GeistMono Nerd Font";
+    --default-mono-font-family: "GeistMono Nerd Font";
+}
+
 @layer base {
     body {
         background-color: black;
