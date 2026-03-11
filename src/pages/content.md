@@ -8,23 +8,21 @@ the goal is to help the next generation of teenage hackers grow into skilled sec
 
 ## what is Hack Club?
 
-Hack Club is a global nonprofit community for teenagers who love building things with technology. thousands of students around the world participate by creating software, hardware, and open-source projects.
+[Hack Club](https://hackclub.com) is a global nonprofit community for teenagers who love building things with technology. thousands of students around the world participate by creating software, hardware, and open-source projects.
 
-### yswses
-a core part of hack club is the ysws model, which stands for:
-
-you ship, we ship
+### ysws model
+a core part of hack club is the [ysws model](https://ysws.hackclub.com/), which stands for **you ship, we ship**
 
 if you build and ship a real technical project, hack club ships you something in return, usually tools or hardware that help you build even more.
 
-most ysws programs focus on things like building apps, games, or hardware projects. flagged brings that same idea to cybersecurity.
+<!--most ysws programs focus on things like building apps, games, or hardware projects. flagged brings that same idea to cybersecurity.-->
 
 ---
 
 ## how it works
 instead of building a project from scratch, participants solve challenges in a capture the flag (ctf) competition.
 
-Capture the Flag (cybersecurity) competitions are a popular way to learn security. each challenge contains a vulnerability or hidden weakness in a system.
+[Capture the Flag](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) (cybersecurity) competitions are a popular way to learn security. each challenge contains a vulnerability or hidden weakness in a system.
 
 #### participants must:
 * investigate the system
@@ -39,7 +37,7 @@ Capture the Flag (cybersecurity) competitions are a popular way to learn securit
 
 finding the flag proves you successfully broke the system.
 
-### ys
+### ys (you ship)
 in flagged, finding the flag isn't enough.
 
 to earn rewards, participants must ship a technical write-up explaining exactly how they solved the challenge.
@@ -55,7 +53,7 @@ this turns the process from simple trial-and-error into real learning.
 
 the goal is to help participants move beyond "script-kiddie" tactics and start thinking like security engineers who understand the systems they're attacking.
 
-### ws
+### ws (we ship)
 when participants successfully complete challenges and ship high-quality write-ups, hack club ships them real security hardware.
 
 the idea is to put professional-grade tools into the hands of teenagers who have already demonstrated the skills to use them.
@@ -63,8 +61,8 @@ the idea is to put professional-grade tools into the hands of teenagers who have
 rewards may include:
 
 * YubiKey
-* hardware authentication tokens used by security teams worldwide to protect accounts with strong two-factor authentication.
 * Flipper Zero
+* hardware authentication tokens used by security teams worldwide to protect accounts with strong two-factor authentication.
 * a portable hacking multi-tool used for interacting with wireless systems, access control devices, and embedded hardware.
 * specialized security hardware
 * things like wifi development boards, breakout kits, and other tools commonly used in hardware and wireless security research.
