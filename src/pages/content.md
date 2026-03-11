@@ -6,6 +6,23 @@ the idea is simple: learn security by actually doing it. participants break inte
 
 the goal is to help the next generation of teenage hackers grow into skilled security researchers and engineers.
 
+---
+
+## what is Hack Club?
+
+Hack Club is a global nonprofit community for teenagers who love building things with technology. thousands of students around the world participate by creating software, hardware, and open-source projects.
+
+### yswses
+a core part of hack club is the ysws model, which stands for:
+
+you ship, we ship
+
+if you build and ship a real technical project, hack club ships you something in return, usually tools or hardware that help you build even more.
+
+most ysws programs focus on things like building apps, games, or hardware projects. flagged brings that same idea to cybersecurity.
+
+---
+
 ## how it works
 instead of building a project from scratch, participants solve challenges in a capture the flag (ctf) competition.
 
@@ -63,15 +80,3 @@ prove you understand the exploit.
 earn the tools used by professional security researchers.
 
 show us you can hack responsibly, and we'll help you hack even better.
-
-## what is Hack Club?
-
-Hack Club is a global nonprofit community for teenagers who love building things with technology. thousands of students around the world participate by creating software, hardware, and open-source projects.
-
-a core part of hack club is the ysws model, which stands for:
-
-you ship, we ship
-
-if you build and ship a real technical project, hack club ships you something in return, usually tools or hardware that help you build even more.
-
-most ysws programs focus on things like building apps, games, or hardware projects. flagged brings that same idea to cybersecurity.
