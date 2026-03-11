@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --default-font-family: "GeistMono Nerd Font";
-    --default-mono-font-family: "GeistMono Nerd Font";
+    --default-font-family: var(--geist-mono-nerd-font);
+    --default-mono-font-family: var(--geist-mono-nerd-font);
 }
 
 @layer base {
