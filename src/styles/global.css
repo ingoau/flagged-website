@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-body {
-    background-color: black;
+@layer base {
+    body {
+        background-color: black;
+    }
+}
+
+a {
+    text-decoration-style: wavy;
+}
+
+@utility prose {
+    --tw-prose-invert-links: var(--color-green-500);
+    --tw-prose-invert-bold: var(--color-green-500);
 }
