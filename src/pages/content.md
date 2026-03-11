@@ -1,5 +1,3 @@
-# flagged
-
 flagged is **Hack Club**'s first dedicated cybersecurity ysws.
 
 the idea is simple: learn security by actually doing it. participants break intentionally vulnerable systems, document how they did it, and earn real security hardware for their work.
