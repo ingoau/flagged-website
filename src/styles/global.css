@@ -28,7 +28,11 @@ a:active {
     filter: brightness(0.7);
 }
 
+.prose strong {
+    @apply bg-green-400 text-black border-green-400 border-2 rounded;
+    font-weight: normal;
+}
+
 @utility prose {
     --tw-prose-invert-links: var(--color-green-500);
-    --tw-prose-invert-bold: var(--color-green-500);
 }
