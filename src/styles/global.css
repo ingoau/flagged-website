@@ -18,14 +18,15 @@ a {
     text-decoration-skip-ink: none;
     text-underline-offset: 3px;
     transition-duration: 200ms;
+    filter: drop-shadow(0 0 2px var(--color-green-500));
 }
 
 a:hover {
-    filter: brightness(1.5);
+    filter: brightness(1.5) drop-shadow(0 0 2px var(--color-green-500));
 }
 
 a:active {
-    filter: brightness(0.7);
+    filter: brightness(0.7) drop-shadow(0 0 2px var(--color-green-500));
 }
 
 .prose strong {
