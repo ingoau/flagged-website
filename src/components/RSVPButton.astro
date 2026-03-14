@@ -1,5 +1,16 @@
+---
+import Flag from "~icons/material-symbols/flag";
+
+const { class: btnClass } = Astro.props;
+---
+
 <a
     href="https://flagged.fillout.com/rsvp"
-    class="border-green-500/25 block px-4 py-1 border-2 bg-green-500/10 cursor-pointer not-prose text-center"
-    >RSVP</a
+    class:list={[
+        "border-green-500/25 px-4 py-1 border-2 bg-green-500/10 cursor-pointer not-prose text-center flex flex-row items-center gap-2 justify-center",
+        btnClass,
+    ]}
 >
+    <Flag />
+    RSVP
+</a>
