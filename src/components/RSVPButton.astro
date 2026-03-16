@@ -5,10 +5,7 @@ import Button from "./Button.astro";
 const { class: btnClass } = Astro.props;
 ---
 
-<Button
-    href="https://flagged.fillout.com/rsvp"
-    class={btnClass}
->
+<Button href="/rsvp" class={btnClass}>
     <Flag />
     RSVP
 </Button>
