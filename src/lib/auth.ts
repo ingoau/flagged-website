@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { genericOAuth } from "better-auth/plugins";
 
 export const auth = betterAuth({
+  baseURL: import.meta.env.BETTER_AUTH_URL,
   plugins: [
     genericOAuth({
       config: [
