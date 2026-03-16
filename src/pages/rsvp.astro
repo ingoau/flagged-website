@@ -1,5 +1,6 @@
 ---
 import { auth } from "../lib/auth";
+import { parseSetCookieHeader } from "better-auth/cookies";
 export const prerender = false;
 
 const user = await auth.api.getSession({
@@ -7,15 +8,34 @@ const user = await auth.api.getSession({
 });
 
 if (!user) {
-    const { redirect: shouldRedirect, url } = await auth.api.signInWithOAuth2({
+    const { headers, response } = await auth.api.signInWithOAuth2({
         body: {
             providerId: "hca",
             callbackURL: "/rsvp",
         },
         headers: Astro.request.headers,
+        returnHeaders: true,
     });
-    if (shouldRedirect) {
-        return Astro.redirect(url);
+
+    const setCookie = headers.get("set-cookie");
+    if (setCookie) {
+        const cookies = parseSetCookieHeader(setCookie);
+
+        for (const [name, attrs] of cookies) {
+            Astro.cookies.set(name, attrs.value, {
+                domain: attrs.domain,
+                expires: attrs.expires,
+                httpOnly: attrs.httponly,
+                maxAge: attrs["max-age"],
+                path: attrs.path ?? "/",
+                sameSite: attrs.samesite,
+                secure: attrs.secure,
+            });
+        }
+    }
+
+    if (response.redirect) {
+        return Astro.redirect(response.url);
     }
 }
 ---
