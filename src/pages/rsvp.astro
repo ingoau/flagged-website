@@ -1,0 +1,20 @@
+---
+import { auth } from "../lib/auth";
+
+const user = await auth.api.getSession({
+    headers: Astro.request.headers,
+});
+
+if (!user) {
+    const { redirect: shouldRedirect, url } = await auth.api.signInWithOAuth2({
+        body: {
+            providerId: "hca",
+            callbackURL: "/rsvp",
+        },
+        headers: Astro.request.headers,
+    });
+    if (shouldRedirect) {
+        return Astro.redirect(url);
+    }
+}
+---
