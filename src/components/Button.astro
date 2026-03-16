@@ -1,17 +1,26 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"a"> {}
+interface Props extends HTMLAttributes<"a">, HTMLAttributes<"button"> {
+    href?: string;
+    type?: HTMLAttributes<"button">["type"];
+}
 
-const { class: className, ...props } = Astro.props;
+const { class: className, href, type = "button", ...props } = Astro.props;
+const sharedClass = [
+    "border-green-500/25 px-4 py-1 border-2 bg-green-500/10 cursor-pointer not-prose text-center flex flex-row items-center gap-2 justify-center",
+    className,
+];
 ---
 
-<a
-    {...props}
-    class:list={[
-        "border-green-500/25 px-4 py-1 border-2 bg-green-500/10 cursor-pointer not-prose text-center flex flex-row items-center gap-2 justify-center",
-        className,
-    ]}
->
-    <slot />
-</a>
+{
+    href ? (
+        <a {...props} href={href} class:list={sharedClass}>
+            <slot />
+        </a>
+    ) : (
+        <button {...props} type={type} class:list={sharedClass}>
+            <slot />
+        </button>
+    )
+}
