@@ -3,6 +3,15 @@ import { genericOAuth } from "better-auth/plugins";
 
 export const auth = betterAuth({
   baseURL: import.meta.env.BETTER_AUTH_URL,
+  user: {
+    additionalFields: {
+      slack_id: {
+        type: "string",
+        input: false,
+        required: true,
+      },
+    },
+  },
   plugins: [
     genericOAuth({
       config: [
