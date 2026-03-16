@@ -12,7 +12,7 @@ export const auth = betterAuth({
           clientSecret: import.meta.env.HCA_CLIENT_SECRET!,
           discoveryUrl:
             "https://auth.hackclub.com/.well-known/openid-configuration",
-          scopes: ["openid", "email", "profile", "slack_id"],
+          scopes: ["openid", "profile", "slack_id"],
         },
       ],
     }),
