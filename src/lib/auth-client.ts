@@ -1,2 +1,5 @@
 import { createAuthClient } from "better-auth/client";
-export const authClient = createAuthClient();
+import { genericOAuthClient } from "better-auth/client/plugins";
+export const authClient = createAuthClient({
+  plugins: [genericOAuthClient()],
+});
