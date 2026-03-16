@@ -13,6 +13,12 @@ export const auth = betterAuth({
           discoveryUrl:
             "https://auth.hackclub.com/.well-known/openid-configuration",
           scopes: ["openid", "profile", "slack_id"],
+          mapProfileToUser: async (profile) => {
+            return {
+              ...profile,
+              email: profile.id,
+            };
+          },
         },
       ],
     }),
