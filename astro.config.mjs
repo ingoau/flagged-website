@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 import Icons from "unplugin-icons/vite";
 import mdx from "@astrojs/mdx";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   experimental: {
@@ -36,4 +38,5 @@ export default defineConfig({
   },
 
   integrations: [mdx()],
+  adapter: vercel(),
 });
