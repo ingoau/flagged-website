@@ -56,7 +56,7 @@ if (
             .firstPage()
     ).length
 ) {
-    return Astro.redirect("/rsvp/done");
+    return Astro.redirect("/rsvp/alreadydone");
 }
 
 if (Astro.request.method === "POST") {
