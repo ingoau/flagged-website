@@ -5,6 +5,7 @@ import { auth } from "../../lib/auth";
 import { parseSetCookieHeader } from "better-auth/cookies";
 export const prerender = false;
 import Airtable from "airtable";
+import { authClient } from "../../lib/auth-client";
 
 const base = new Airtable({
     apiKey: import.meta.env.AIRTABLE_API_KEY,
@@ -94,8 +95,17 @@ if (Astro.request.method === "POST") {
                 class="min-h-72 bg-green-500/5 flex justify-center items-center flex-col gap-4 p-4"
             >
                 <div class="max-w-xl flex flex-col gap-4">
-                    Just a quick question. Have you ever done a CTF (capture the
-                    flag) before?
+                    RSVPing as
+                    <div
+                        class="border-2 border-green-500/25 flex flex-row p-2 pl-4"
+                    >
+                        {user?.user.name} ({user?.user.slack_id})
+                        <div class="grow"></div>
+                        <Button class="text-sm" href="/signout">Sign out</Button
+                        >
+                    </div>
+                    Just a quick question. Have you ever done a CTF (capture the flag)
+                    before?
                     <form action="/rsvp" method="post">
                         <fieldset class="flex flex-col gap-4">
                             <legend class="sr-only">
