@@ -51,9 +51,10 @@ if (Astro.request.method === "POST") {
         await base("RSVPs").create([
             {
                 fields: {
-                    Name: "",
-                    "Slack ID": "",
-                    "Has done a CTF": true,
+                    Name: user?.user.name,
+                    "Slack ID": user?.user.slack_id,
+                    "Has done a CTF":
+                        (await Astro.request.formData()).get("ctf") === "yes",
                 },
             },
         ]);
