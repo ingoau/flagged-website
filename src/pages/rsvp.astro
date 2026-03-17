@@ -60,14 +60,16 @@ if (
 }
 
 if (Astro.request.method === "POST") {
+    const hasDoneCTF = (await Astro.request.formData()).get("ctf") === "yes";
+    const referrer = (await Astro.request.formData()).get("ref");
     try {
         await base("RSVPs").create([
             {
                 fields: {
                     Name: user?.user.name,
                     "Slack ID": user?.user.slack_id,
-                    "Has done a CTF":
-                        (await Astro.request.formData()).get("ctf") === "yes",
+                    "Has done a CTF": hasDoneCTF,
+                    Referrer: typeof referrer === "string" ? referrer : "",
                 },
             },
         ]);
