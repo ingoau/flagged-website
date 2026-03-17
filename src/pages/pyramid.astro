@@ -79,6 +79,7 @@ const referred = await base("RSVPs")
                 slackId={user?.user.slack_id}
             />
             You have referred {referred.length}
+            {" "}
             {referred.length === 1 ? "person" : "people"}
             <br />
             Your link is https://{Astro.url.host}/rsvp?ref={user?.user.slack_id}
