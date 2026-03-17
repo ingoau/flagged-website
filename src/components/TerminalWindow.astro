@@ -17,7 +17,7 @@ const { class: className, titleSuffix, bodyClass, ...props } = Astro.props;
         class="h-8 bg-green-500/10 border-b-2 border-green-500/25 flex items-center pl-2"
     >
         <p class="text-sm font-mono">
-            ~: ./flagged{titleSuffix}
+            <a href="/">~: ./flagged</a>{titleSuffix}
         </p>
     </div>
     <div class:list={["bg-green-500/5", bodyClass]}>
