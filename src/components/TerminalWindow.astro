@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    titleSuffix?: string;
+    bodyClass?: HTMLAttributes<"div">["class"];
+}
+
+const {
+    class: className,
+    titleSuffix,
+    bodyClass,
+    ...props
+} = Astro.props;
+
+const title = `~: ./flagged${titleSuffix ?? ""}`;
+---
+
+<div {...props} class:list={["w-full border-2 border-green-500/25 not-prose", className]}>
+    <div
+        class="h-8 bg-green-500/10 border-b-2 border-green-500/25 flex items-center pl-2"
+    >
+        <p class="text-sm font-mono">{title}</p>
+    </div>
+    <div class:list={["bg-green-500/5", bodyClass]}>
+        <slot />
+    </div>
+</div>

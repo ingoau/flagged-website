@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Content } from "./content.mdx";
 import RSVPButton from "../components/RSVPButton.astro";
+import TerminalWindow from "../components/TerminalWindow.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -15,34 +16,18 @@ import RSVPButton from "../components/RSVPButton.astro";
             Draft YSWS: This is not offical and has not been finalised—we are
             still working on it
         </div>
-        <div class="w-full border-2 border-green-500/25 not-prose">
-            <div
-                class="h-8 bg-green-500/10 border-b-2 border-green-500/25 flex items-center pl-2"
-            >
-                <p class="text-sm font-mono">~: ./flagged</p>
-            </div>
-            <div
-                class="h-72 bg-green-500/5 flex justify-center items-center flex-col gap-4"
-            >
+        <TerminalWindow bodyClass="h-72 flex justify-center items-center flex-col gap-4">
                 <div class="border w-72 h-24 flex items-center justify-center">
                     Flagged Logo
                 </div>
                 <RSVPButton />
-            </div>
-        </div>
+        </TerminalWindow>
         <div class="[&_svg]:inline">
             <Content />
         </div>
-        <div class="w-full border-2 border-green-500/25 not-prose">
-            <div
-                class="h-8 bg-green-500/10 border-b-2 border-green-500/25 flex items-center pl-2"
-            >
-                <p class="text-sm font-mono">~: ./flagged</p>
-            </div>
-            <div class="p-4 bg-green-500/5">
+        <TerminalWindow bodyClass="p-4">
                 show us you can hack responsibly, and we'll help you hack even
                 better.
-            </div>
-        </div>
+        </TerminalWindow>
     </div>
 </Layout>
