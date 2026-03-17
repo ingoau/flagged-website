@@ -4,6 +4,11 @@ import Layout from "../layouts/Layout.astro";
 import { auth } from "../lib/auth";
 import { parseSetCookieHeader } from "better-auth/cookies";
 export const prerender = false;
+import Airtable from "airtable";
+
+const base = new Airtable({
+    apiKey: import.meta.env.AIRTABLE_API_KEY,
+}).base(import.meta.env.AIRTABLE_BASE_ID);
 
 const user = await auth.api.getSession({
     headers: Astro.request.headers,
@@ -42,6 +47,20 @@ if (!user) {
 }
 
 if (Astro.request.method === "POST") {
+    try {
+        await base("RSVPs").create([
+            {
+                fields: {
+                    Name: "",
+                    "Slack ID": "",
+                    "Has done a CTF": true,
+                },
+            },
+        ]);
+    } catch (e) {
+        console.error(e);
+        return Astro.redirect("/rsvp/error");
+    }
     return Astro.redirect("/rsvp/done");
 }
 ---
