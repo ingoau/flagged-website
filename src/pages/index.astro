@@ -10,24 +10,26 @@ import TerminalWindow from "../components/TerminalWindow.astro";
 
 <Layout>
     <div class="prose prose-xl prose-invert mx-auto p-4">
+        <TerminalWindow
+            bodyClass="h-72 flex justify-center items-center flex-col gap-4"
+        >
+            <div class="border w-72 h-24 flex items-center justify-center">
+                Flagged Logo
+            </div>
+            <RSVPButton />
+        </TerminalWindow>
         <div
-            class="p-2 bg-red-500/25 mb-8 border-2 border-red-500/25 not-prose"
+            class="p-2 bg-red-500/25 mt-8 border-2 border-red-500/25 not-prose"
         >
             Draft YSWS: This is not offical and has not been finalised—we are
             still working on it
         </div>
-        <TerminalWindow bodyClass="h-72 flex justify-center items-center flex-col gap-4">
-                <div class="border w-72 h-24 flex items-center justify-center">
-                    Flagged Logo
-                </div>
-                <RSVPButton />
-        </TerminalWindow>
         <div class="[&_svg]:inline">
             <Content />
         </div>
         <TerminalWindow bodyClass="p-4">
-                show us you can hack responsibly, and we'll help you hack even
-                better.
+            show us you can hack responsibly, and we'll help you hack even
+            better.
         </TerminalWindow>
     </div>
 </Layout>
