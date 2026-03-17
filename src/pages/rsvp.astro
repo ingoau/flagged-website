@@ -131,6 +131,11 @@ if (Astro.request.method === "POST") {
                                     </span>
                                 </label>
                             </div>
+                            <input
+                                type="hidden"
+                                name="ref"
+                                value={Astro.url.searchParams.get("ref")}
+                            />
                             <Button type="submit">RSVP</Button>
                         </fieldset>
                     </form>
