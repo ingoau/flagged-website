@@ -60,8 +60,9 @@ if (
 }
 
 if (Astro.request.method === "POST") {
-    const hasDoneCTF = (await Astro.request.formData()).get("ctf") === "yes";
-    const referrer = (await Astro.request.formData()).get("ref");
+    const formData = await Astro.request.formData();
+    const hasDoneCTF = formData.get("ctf") === "yes";
+    const referrer = formData.get("ref");
     try {
         await base("RSVPs").create([
             {
