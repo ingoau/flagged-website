@@ -46,6 +46,19 @@ if (!user) {
     }
 }
 
+if (
+    (
+        await base("RSVPs")
+            .select({
+                maxRecords: 1,
+                filterByFormula: `{Slack ID} = "${user?.user.slack_id}"`,
+            })
+            .firstPage()
+    ).length
+) {
+    return Astro.redirect("/rsvp/done");
+}
+
 if (Astro.request.method === "POST") {
     try {
         await base("RSVPs").create([
