@@ -1,8 +1,7 @@
 ---
-import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
-import TerminalPanel from "../components/TerminalPanel.astro";
 import TerminalWindow from "../components/TerminalWindow.astro";
+import UserInfoPanel from "../components/UserInfoPanel.astro";
 import { auth } from "../lib/auth";
 import { parseSetCookieHeader } from "better-auth/cookies";
 export const prerender = false;
@@ -74,17 +73,15 @@ const referred = await base("RSVPs")
             titleSuffix=" --pyramid-scheme"
             bodyClass="flex flex-col gap-4 p-4 items-start"
         >
-                <TerminalPanel class="flex flex-row p-2 pl-4 w-full">
-                    {user?.user.name} ({user?.user.slack_id})
-                    <div class="grow"></div>
-                    <Button class="text-sm" href="/signout">Sign out</Button>
-                </TerminalPanel>
-                You have referred {referred.length}
-                {referred.length === 1 ? "person" : "people"}
-                <br />
-                Your link is https://{Astro.url.host}/rsvp?ref={
-                    user?.user.slack_id
-                }
+            <UserInfoPanel
+                class="w-full"
+                name={user?.user.name}
+                slackId={user?.user.slack_id}
+            />
+            You have referred {referred.length}
+            {referred.length === 1 ? "person" : "people"}
+            <br />
+            Your link is https://{Astro.url.host}/rsvp?ref={user?.user.slack_id}
         </TerminalWindow>
     </div>
 </Layout>

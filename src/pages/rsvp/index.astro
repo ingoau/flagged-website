@@ -1,8 +1,8 @@
 ---
-import Button from "../../components/Button.astro";
 import Layout from "../../layouts/Layout.astro";
-import TerminalPanel from "../../components/TerminalPanel.astro";
 import TerminalWindow from "../../components/TerminalWindow.astro";
+import Button from "../../components/Button.astro";
+import UserInfoPanel from "../../components/UserInfoPanel.astro";
 import { auth } from "../../lib/auth";
 import { parseSetCookieHeader } from "better-auth/cookies";
 export const prerender = false;
@@ -90,63 +90,59 @@ if (Astro.request.method === "POST") {
             titleSuffix=" --rsvp"
             bodyClass="min-h-72 flex justify-center items-center flex-col gap-4 p-4"
         >
-                <div class="max-w-xl flex flex-col gap-4">
-                    RSVPing as
-                    <TerminalPanel class="flex flex-row p-2 pl-4">
-                        {user?.user.name} ({user?.user.slack_id})
-                        <div class="grow"></div>
-                        <Button class="text-sm" href="/signout">Sign out</Button
-                        >
-                    </TerminalPanel>
-                    Just a quick question. Have you ever done a CTF (capture the flag)
-                    before?
-                    <form action="/rsvp" method="post">
-                        <fieldset class="flex flex-col gap-4">
-                            <legend class="sr-only">
-                                Have you ever done a capture the flag before?
-                            </legend>
-                            <div
-                                class="w-full grid grid-cols-1 gap-4 sm:grid-cols-2"
-                            >
-                                <label class="cursor-pointer">
-                                    <input
-                                        class="peer sr-only"
-                                        type="radio"
-                                        id="ctf-no"
-                                        value="no"
-                                        name="ctf"
-                                        required
-                                    />
-                                    <span
-                                        class="flex items-center justify-center border-2 border-green-500/25 bg-green-500/5 px-4 py-3 text-center transition peer-checked:border-green-500 peer-checked:bg-green-500/15"
-                                    >
-                                        No
-                                    </span>
-                                </label>
-                                <label class="cursor-pointer">
-                                    <input
-                                        class="peer sr-only"
-                                        type="radio"
-                                        id="ctf-yes"
-                                        value="yes"
-                                        name="ctf"
-                                    />
-                                    <span
-                                        class="flex items-center justify-center border-2 border-green-500/25 bg-green-500/5 px-4 py-3 text-center transition peer-checked:border-green-500 peer-checked:bg-green-500/15"
-                                    >
-                                        Yes
-                                    </span>
-                                </label>
-                            </div>
-                            <input
-                                type="hidden"
-                                name="ref"
-                                value={Astro.url.searchParams.get("ref")}
-                            />
-                            <Button type="submit">RSVP</Button>
-                        </fieldset>
-                    </form>
-                </div>
+            <div class="max-w-xl flex flex-col gap-4">
+                RSVPing as
+                <UserInfoPanel
+                    name={user?.user.name}
+                    slackId={user?.user.slack_id}
+                />
+                Just a quick question. Have you ever done a CTF (capture the flag)
+                before?
+                <form action="/rsvp" method="post">
+                    <fieldset class="flex flex-col gap-4">
+                        <legend class="sr-only">
+                            Have you ever done a capture the flag before?
+                        </legend>
+                        <div class="w-full grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <label class="cursor-pointer">
+                                <input
+                                    class="peer sr-only"
+                                    type="radio"
+                                    id="ctf-no"
+                                    value="no"
+                                    name="ctf"
+                                    required
+                                />
+                                <span
+                                    class="flex items-center justify-center border-2 border-green-500/25 bg-green-500/5 px-4 py-3 text-center transition peer-checked:border-green-500 peer-checked:bg-green-500/15"
+                                >
+                                    No
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input
+                                    class="peer sr-only"
+                                    type="radio"
+                                    id="ctf-yes"
+                                    value="yes"
+                                    name="ctf"
+                                />
+                                <span
+                                    class="flex items-center justify-center border-2 border-green-500/25 bg-green-500/5 px-4 py-3 text-center transition peer-checked:border-green-500 peer-checked:bg-green-500/15"
+                                >
+                                    Yes
+                                </span>
+                            </label>
+                        </div>
+                        <input
+                            type="hidden"
+                            name="ref"
+                            value={Astro.url.searchParams.get("ref")}
+                        />
+                        <Button type="submit">RSVP</Button>
+                    </fieldset>
+                </form>
+            </div>
         </TerminalWindow>
     </div>
 </Layout>

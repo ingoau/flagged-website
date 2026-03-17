@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Button from "./Button.astro";
+import TerminalPanel from "./TerminalPanel.astro";
+
+interface Props extends HTMLAttributes<"div"> {
+    name?: string | null;
+    slackId?: string | null;
+}
+
+const { class: className, name, slackId, ...props } = Astro.props;
+---
+
+<TerminalPanel
+    {...props}
+    class:list={["flex flex-col md:flex-row gap-1 p-2 md:pl-4", className]}
+>
+    {name} ({slackId})
+    <div class="grow"></div>
+    <Button class="text-sm" href="/signout">Sign out</Button>
+</TerminalPanel>
