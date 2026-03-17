@@ -18,7 +18,7 @@ if (!user) {
     const { headers, response } = await auth.api.signInWithOAuth2({
         body: {
             providerId: "hca",
-            callbackURL: "/rsvp",
+            callbackURL: Astro.request.url,
         },
         headers: Astro.request.headers,
         returnHeaders: true,
