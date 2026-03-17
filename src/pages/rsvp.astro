@@ -40,6 +40,10 @@ if (!user) {
         return Astro.redirect(response.url);
     }
 }
+
+if (Astro.request.method === "POST") {
+    return Astro.redirect("/rsvp/done");
+}
 ---
 
 <Layout>
