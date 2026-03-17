@@ -9,24 +9,22 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.local(),
-        name: "GeistMonoNerdFont",
-        cssVariable: "--geist-mono-nerd-font",
-        options: {
-          variants: [
-            {
-              src: ["./src/assets/fonts/GeistMonoNerdFontMono-Regular.otf"],
-              weight: "normal",
-              style: "normal",
-            },
-          ],
-        },
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "GeistMonoNerdFont",
+      cssVariable: "--geist-mono-nerd-font",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/GeistMonoNerdFontMono-Regular.otf"],
+            weight: "normal",
+            style: "normal",
+          },
+        ],
       },
-    ],
-  },
+    },
+  ],
 
   vite: {
     plugins: [
